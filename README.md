@@ -1,2 +1,2 @@
 # kittencremental
-cat clicker game. learning project
+Cat clicker game. Learning project.
