@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <curses.h>
 #include "main.h"
 
@@ -24,18 +25,28 @@ int main(void)
 
 	/* Make cat display window */
 	catDisp = subwin(mainWin, height, width, y, x);
+	incDisp = subwin(mainWin, height, width, 0, 0); 
 	catBox();
-	refresh();
-
+	incBox();
 	// Main program loop
 
 	while ( buttonClick != 'q' ) {
 		buttonClick = getch();
+
 		if (buttonClick == 'i') 
 			{	
 			kittens++;
 			}
+
+		if (buttonClick == 'o' && kittens >= 10)
+			{
+			foodCans++;
+			kittens -= 10;
+			updateKittens();
+			}
+
 		catBox();
+		incBox();
 		}	
 
 	// Cleanup under here
@@ -52,4 +63,18 @@ void catBox() {
 	box(catDisp, 0, 0);	
 	wrefresh(catDisp);
 
+}
+
+void incBox() {
+	sprintf(canString, "Cans: %i", foodCans);
+	mvwaddstr(incDisp, 1, 4, canString); 
+	mvwaddstr(incDisp, 2, 2, "Can: 10 Kittens");
+	mvwaddstr(incDisp, 3, 2, "Press o to buy");
+	box(incDisp, 0, 0);
+	wrefresh(incDisp);
+}
+
+void updateKittens() {
+	wmove(catDisp, 1, 4);
+	wclrtoeol(catDisp);
 }
