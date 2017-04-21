@@ -11,6 +11,6 @@
 	char kittenString[10];	
 	int width, height, rows, cols, x, y;
 
-	WINDOW * mainWin, * childWin;
+	WINDOW * mainWin, * catDisp;
 	
 #endif

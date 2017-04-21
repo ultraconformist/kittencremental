@@ -11,20 +11,19 @@ int main(void)
 {
 	// Initialize ncurses and get term size
 	if ( (mainWin = initscr()) == NULL ) {
-		fprintf(stderr, "Problems with ncurses.\n");
+		fprintf(stderr, "Error loading ncurses.\n");
 		exit(EXIT_FAILURE);
 	}
-	initscr(); cbreak(); noecho();
-	getmaxyx(stdscr, maxY, maxX);
+	cbreak(); noecho(); getmaxyx(stdscr, maxY, maxX);
 
-	/* Child window dimensions */
+	/* Cat display window dimensions */
 	width = 20, height = 	  7;
 	rows  = 25,  cols  = 	 80;
-	x	  = (cols - width)  / 2;	
-	y	  = (rows - height) / 2;	
+	x	  = maxX  / 2;	
+	y	  = maxY / 2;	
 
-	/* Make child window */
-	childWin = subwin(mainWin, height, width, y, x);
+	/* Make cat display window */
+	catDisp = subwin(mainWin, height, width, y, x);
 	catBox();
 	refresh();
 
@@ -35,11 +34,6 @@ int main(void)
 		if (buttonClick == 'i') 
 			{	
 			kittens++;
-			clear();
-			}
-		else
-			{
-			clear();
 			}
 		catBox();
 		}	
@@ -52,9 +46,10 @@ int main(void)
 void catBox() {
 
 	sprintf(kittenString, "Kittens: %i", kittens);
-	mvwaddstr(childWin, 1, 4, kittenString);
-	mvwaddstr(childWin, 2, 2, "Press i for more.");
-	mvwaddstr(childWin, 3, 2, "Press q to quit.");
-	box(childWin, 0, 0);	
+	mvwaddstr(catDisp, 1, 4, kittenString);
+	mvwaddstr(catDisp, 2, 2, "Press i for more.");
+	mvwaddstr(catDisp, 3, 2, "Press q to quit.");
+	box(catDisp, 0, 0);	
+	wrefresh(catDisp);
 
 }
