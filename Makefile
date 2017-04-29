@@ -1,2 +1,2 @@
 kittencremental: main.c
-	cc main.c -o kittencremental.o -lncurses
+	cc main.c -o kittencremental.o -lncurses -pthread
