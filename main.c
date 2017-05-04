@@ -3,8 +3,6 @@
    By Morgan (@Ultraconformist) */
 
 #include <stdio.h>
-#include <unistd.h>
-#include <pthread.h>
 #include <stdlib.h>
 #include <string.h>
 #include <curses.h>
@@ -30,29 +28,23 @@ int main(void)
 	incDisp = subwin(mainWin, height, width, 0, 0); 
 	catBox();
 	incBox();
-
-	// pthread for parallel work
-	pthread_t box_incrementer_thread;
-	pthread_t char_getter_thread;
-	pthread_create(&char_getter_thread, NULL, charGetter, NULL);
-	pthread_create(&box_incrementer_thread, NULL, boxIncrementer, NULL );	
 	// Main program loop
-	
+
 	while ( buttonClick != 'q' ) {
+		buttonClick = getch();
+
 		if (buttonClick == 'i') 
 			{	
-			buttonClick = ' ';
 			kittens++;
 			}
 
 		if (buttonClick == 'o' && kittens >= 10)
 			{
-			buttonClick = ' ';
 			foodCans++;
 			kittens -= 10;
+			updateKittens();
 			}
-		
-		updateKittens();
+
 		catBox();
 		incBox();
 		}	
@@ -86,27 +78,3 @@ void updateKittens() {
 	wmove(catDisp, 1, 4);
 	wclrtoeol(catDisp);
 }
-
-void *boxIncrementer( void *inc_void_ptr )
-{
-	while (buttonClick != 'q' ) {
-		if (foodCans > 0) {
-			kittens *= foodCans;
-			updateKittens();
-			sleep(2);
-		}
-		else
-			sleep(2);
-		}
-	return NULL;
-}
-
-void *charGetter( void *char_void_ptr )
-{
-	while (buttonClick != 'q' ) {
-		buttonClick = getch();
-	}
-
-	return NULL;
-}
-
