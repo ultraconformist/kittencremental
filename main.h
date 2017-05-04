@@ -1,6 +1,6 @@
 // Kittencremental main header
-#ifndef MAIN_H_ 
-#define MAIN_H_ 
+#ifndef main_h
+#define main_h
 
 	void catBox();
 	void incBox();
@@ -9,13 +9,14 @@
 	void *charGetter(void *char_void_ptr);
 
 	int maxX, maxY;	
-	int kittens;
-	int foodCans;
+	int kittens = 0;
+	int foodCans = 0;
 	int i;
-	char buttonClick;
+	char buttonClick = ' ';
 	char kittenString[10];	
 	char canString[10];
 	int width, height, rows, cols, x, y;
+	static int NUM_THREADS = 1;
 
 	WINDOW * mainWin, * catDisp, * incDisp;
 	
