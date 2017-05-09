@@ -28,8 +28,16 @@ int main(void)
 	incDisp = subwin(mainWin, height, width, 0, 0); 
 	catBox();
 	incBox();
+<<<<<<< HEAD
 	// Main program loop
 
+=======
+
+	// pthread to grab input
+	pthread_t	char_getter_thread;
+	pthread_create(&char_getter_thread, NULL, charGetter, NULL);
+	// Main program loop
+>>>>>>> origin/Working
 	while ( buttonClick != 'q' ) {
 		buttonClick = getch();
 
@@ -47,6 +55,13 @@ int main(void)
 
 		catBox();
 		incBox();
+<<<<<<< HEAD
+=======
+		boxIncrementer();
+		updateKittens();
+		i++;
+		usleep(10000);
+>>>>>>> origin/Working
 		}	
 
 	// Cleanup under here

@@ -5,6 +5,11 @@
 	void catBox();
 	void incBox();
 	void updateKittens();
+<<<<<<< HEAD
+=======
+	void boxIncrementer();
+	void *charGetter(void *char_void_ptr);
+>>>>>>> origin/Working
 
 	int maxX, maxY;	
 	int kittens = 0;
