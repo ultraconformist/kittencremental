@@ -3,6 +3,8 @@
    By Morgan (@Ultraconformist) */
 
 #include <stdio.h>
+#include <unistd.h>
+#include <pthread.h>
 #include <stdlib.h>
 #include <string.h>
 #include <curses.h>
@@ -15,7 +17,7 @@ int main(void)
 		fprintf(stderr, "Error loading ncurses.\n");
 		exit(EXIT_FAILURE);
 	}
-	cbreak(); noecho(); getmaxyx(stdscr, maxY, maxX);
+	cbreak(); noecho();  getmaxyx(stdscr, maxY, maxX);
 
 	/* Cat display window dimensions */
 	width = 20, height = 	  7;
@@ -28,65 +30,36 @@ int main(void)
 	incDisp = subwin(mainWin, height, width, 0, 0); 
 	catBox();
 	incBox();
-<<<<<<< HEAD
-	// Main program loop
-
-=======
 
 	// pthread to grab input
 	pthread_t	char_getter_thread;
 	pthread_create(&char_getter_thread, NULL, charGetter, NULL);
 	// Main program loop
->>>>>>> origin/Working
 	while ( buttonClick != 'q' ) {
-		buttonClick = getch();
-
 		if (buttonClick == 'i') 
 			{	
+			buttonClick = ' ';
 			kittens++;
 			}
 
 		if (buttonClick == 'o' && kittens >= 10)
 			{
+			buttonClick = ' ';
 			foodCans++;
 			kittens -= 10;
 			updateKittens();
 			}
-
 		catBox();
 		incBox();
-<<<<<<< HEAD
-=======
 		boxIncrementer();
 		updateKittens();
 		i++;
 		usleep(10000);
->>>>>>> origin/Working
 		}	
 
 	// Cleanup under here
 	endwin();
 	return 0;
-}
-
-void catBox() {
-
-	sprintf(kittenString, "Kittens: %i", kittens);
-	mvwaddstr(catDisp, 1, 4, kittenString);
-	mvwaddstr(catDisp, 2, 2, "Press i for more.");
-	mvwaddstr(catDisp, 3, 2, "Press q to quit.");
-	box(catDisp, 0, 0);	
-	wrefresh(catDisp);
-
-}
-
-void incBox() {
-	sprintf(canString, "Cans: %i", foodCans);
-	mvwaddstr(incDisp, 1, 4, canString); 
-	mvwaddstr(incDisp, 2, 2, "Can: 10 Kittens");
-	mvwaddstr(incDisp, 3, 2, "Press o to buy");
-	box(incDisp, 0, 0);
-	wrefresh(incDisp);
 }
 
 void updateKittens() {
