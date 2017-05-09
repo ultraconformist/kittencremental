@@ -31,12 +31,10 @@ int main(void)
 	catBox();
 	incBox();
 
-	// pthread for parallel work
-	pthread_t box_incrementer_thread, char_getter_thread;
+	// pthread to grab input
+	pthread_t	char_getter_thread;
 	pthread_create(&char_getter_thread, NULL, charGetter, NULL);
-	pthread_create(&box_incrementer_thread, NULL, boxIncrementer, NULL );	
 	// Main program loop
-	
 	while ( buttonClick != 'q' ) {
 		if (buttonClick == 'i') 
 			{	
@@ -49,10 +47,14 @@ int main(void)
 			buttonClick = ' ';
 			foodCans++;
 			kittens -= 10;
+			updateKittens();
 			}
 		catBox();
 		incBox();
-		wrefresh(incDisp); wrefresh(catDisp);
+		boxIncrementer();
+		updateKittens();
+		i++;
+		usleep(10000);
 		}	
 
 	// Cleanup under here
@@ -64,4 +66,3 @@ void updateKittens() {
 	wmove(catDisp, 1, 4);
 	wclrtoeol(catDisp);
 }
-

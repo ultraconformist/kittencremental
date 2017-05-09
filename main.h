@@ -5,7 +5,7 @@
 	void catBox();
 	void incBox();
 	void updateKittens();
-	void *boxIncrementer(void *inc_void_ptr);
+	void boxIncrementer();
 	void *charGetter(void *char_void_ptr);
 
 	int maxX, maxY;	

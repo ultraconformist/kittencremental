@@ -8,7 +8,10 @@ void catBox() {
 	mvwaddstr(catDisp, 1, 4, kittenString);
 	mvwaddstr(catDisp, 2, 2, "Press i for more.");
 	mvwaddstr(catDisp, 3, 2, "Press q to quit.");
+	// updateKittens();
 	box(catDisp, 0, 0);
+	wclrtoeol(catDisp);
+	wrefresh(catDisp);
 }
 
 void incBox() {
@@ -17,4 +20,6 @@ void incBox() {
 	mvwaddstr(incDisp, 2, 2, "Can: 10 Kittens");
 	mvwaddstr(incDisp, 3, 2, "Press o to buy");
 	box(incDisp, 0, 0);
+	// updateKittens();
+	wrefresh(incDisp);
 }

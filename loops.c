@@ -2,26 +2,20 @@
 #include <curses.h>
 #include "main.h"
 
-void *boxIncrementer( void *inc_void_ptr )
+void boxIncrementer()
 {
-	while (buttonClick != 'q' ) {
+	if (i = 10000){
 		if (foodCans > 0) {
-			kittens *= foodCans;
-			updateKittens();
-			sleep(2);
+			kittens += (foodCans * 1.5);
 		}
-		else
-			sleep(2);
-		}
-	return NULL;
+		i = 0;
+	}
 }
 
-void *charGetter( void *char_void_ptr )
+void *charGetter(void *char_void_ptr)
 {
 	while (buttonClick != 'q' ) {
 		buttonClick = getch();
 	}
-
-	return NULL;
 }
 
