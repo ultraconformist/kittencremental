@@ -44,6 +44,7 @@ int main(void)
 		boxIncrementer();
 		updateKittens();
 		usleep(MILSEC);
+		perSecond = (foodCans)*2+(tunaPools*10);
 		tick++;
 		}	
 

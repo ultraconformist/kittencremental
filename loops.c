@@ -19,7 +19,6 @@ void charGetter()
 		{
 			case 'i':
 				kittens++;
-				buttonClick = ' ';
 				break;
 			case 'o':
 				if (kittens >= canValue) {
@@ -27,7 +26,6 @@ void charGetter()
 				kittens -= canValue;
 				canValue *= 1.5;
 				}
-				buttonClick = ' ';
 				break;
 			case 'f':
 				if (kittens >= tunaValue) {
@@ -35,17 +33,14 @@ void charGetter()
 				kittens -= tunaValue;
 				tunaValue *= 1.5;
 				}
-				buttonClick = ' ';
 				break;
 			case 'q':
 				terminate = true;	
-				endwin();
 				break;
 			default:
-				buttonClick = ' ';
 				break;
 		}
-	
+		fflush(stdin);	
 }
 				
 
