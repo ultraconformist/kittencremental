@@ -5,6 +5,7 @@
 	void catBox();
 	void incBox();
 	void updateKittens();
+	void updateBoxes();
 	void boxIncrementer();
 	void *charGetter(void *char_void_ptr);
 
@@ -14,7 +15,7 @@
 	char buttonClick;
 	char kittenString[10];	
 	char canString[50];
-	char canPrice[100];
+	char canPrice[50];
 	int width, height, rows, cols, x, y;
 
 	WINDOW * mainWin, * catDisp, * incDisp;

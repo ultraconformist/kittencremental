@@ -1,12 +1,13 @@
 #include <unistd.h>
 #include <curses.h>
 #include "main.h"
+#include "loops.h"
 
 void boxIncrementer()
 {
-	if (tick = 90000){
+	if (tick == CANRATE){
 		kittens += (foodCans);
-		i = 0;
+		tick = 0;
 	}
 }
 

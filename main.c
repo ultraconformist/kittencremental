@@ -41,19 +41,16 @@ int main(void)
 	while ( buttonClick != 'q' ) {
 		if (buttonClick == 'i') 
 			{	
-			buttonClick = ' ';
 			kittens++;
 			}
 
 		if (buttonClick == 'o' && kittens >= canValue)
 			{
-			buttonClick = ' ';
 			foodCans++;
 			kittens -= canValue;
 			canValue *= 2;
 			}
-		catBox();
-		incBox();
+		updateBoxes();
 		boxIncrementer();
 		updateKittens();
 		usleep(100000);
@@ -63,9 +60,4 @@ int main(void)
 	// Cleanup under here
 	endwin();
 	return 0;
-}
-
-void updateKittens() {
-	wmove(catDisp, 1, 4);
-	wclrtoeol(catDisp);
 }
