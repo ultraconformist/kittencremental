@@ -3,20 +3,24 @@
 #define MAIN_H_ 
 
 	void catBox();
-	void incBox();
+	void canBox();
+	void tunaBox();
 	void updateKittens();
+	void updateBoxes();
 	void boxIncrementer();
-	void *charGetter(void *char_void_ptr);
+	void charGetter();
 
 	int maxX, maxY;	
-	int i, foodCans, kittens, tick;
-	long canValue;
+	int i, foodCans, kittens, tunaPools, tick;
+	static const int MILSEC = 100000;
+	long canValue, tunaValue;
 	char buttonClick;
-	char kittenString[10];	
-	char canString[50];
-	char canPrice[100];
+	char kittenString[10], canString[50], 
+		 canPrice[50], tunaString[50], 
+		 tunaPrice[50];
+	bool terminate;
 	int width, height, rows, cols, x, y;
 
-	WINDOW * mainWin, * catDisp, * incDisp;
+	WINDOW * mainWin, * catDisp, * canDisp, * tunaDisp;
 	
 #endif
