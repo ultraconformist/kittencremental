@@ -4,10 +4,8 @@
 
 void boxIncrementer()
 {
-	if (i = 10000){
-		if (foodCans > 0) {
-			kittens += (foodCans * 1.5);
-		}
+	if (tick = 90000){
+		kittens += (foodCans);
 		i = 0;
 	}
 }

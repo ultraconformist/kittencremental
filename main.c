@@ -20,10 +20,13 @@ int main(void)
 	cbreak(); noecho();  getmaxyx(stdscr, maxY, maxX);
 
 	/* Cat display window dimensions */
-	width = 20, height = 	  7;
+	width = 25, height = 	  7;
 	rows  = 25,  cols  = 	 80;
 	x	  = maxX  / 2;	
 	y	  = maxY / 2;	
+	
+	/* Set initial values */
+	canValue = 10;
 
 	/* Make cat display window */
 	catDisp = subwin(mainWin, height, width, y, x);
@@ -42,19 +45,19 @@ int main(void)
 			kittens++;
 			}
 
-		if (buttonClick == 'o' && kittens >= 10)
+		if (buttonClick == 'o' && kittens >= canValue)
 			{
 			buttonClick = ' ';
 			foodCans++;
-			kittens -= 10;
-			updateKittens();
+			kittens -= canValue;
+			canValue *= 2;
 			}
 		catBox();
 		incBox();
 		boxIncrementer();
 		updateKittens();
-		i++;
-		usleep(10000);
+		usleep(100000);
+		tick++;
 		}	
 
 	// Cleanup under here
