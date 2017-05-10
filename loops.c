@@ -14,8 +14,8 @@ void boxIncrementer()
 
 void charGetter()
 {
-		buttonClick = getch();
-		switch (buttonClick)
+		ch = getch();
+		switch (ch)
 		{
 			case 'i':
 				kittens++;
@@ -40,8 +40,4 @@ void charGetter()
 			default:
 				break;
 		}
-		fflush(stdin);	
-}
-				
-
-
+	}

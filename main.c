@@ -18,7 +18,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 	cbreak(); noecho();  getmaxyx(stdscr, maxY, maxX);
-	timeout(1);
+	timeout(0);
 	
 	/* Cat display window dimensions */
 	width = 25, height = 	  7;

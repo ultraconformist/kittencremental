@@ -27,7 +27,7 @@ void canBox() {
 
 void tunaBox() {
 	sprintf(tunaString, "Tuna Pools: %i", tunaPools);
-	sprintf(tunaPrice, "Pool: %Ld", tunaValue);
+	sprintf(tunaPrice, "Pool: %Ld kittens.", tunaValue);
 	mvwaddstr(tunaDisp, 1, 4, tunaString);
 	mvwaddstr(tunaDisp, 2, 2, tunaPrice);
 	mvwaddstr(tunaDisp, 3, 2, "Press f to buy.");
