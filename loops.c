@@ -5,16 +5,48 @@
 
 void boxIncrementer()
 {
-	if (tick == CANRATE){
-		kittens += (foodCans);
+	if (tick == INCRATE){
+		kittens += (foodCans*2);
+		kittens += (tunaPools*10);
 		tick = 0;
 	}
 }
 
-void *charGetter(void *char_void_ptr)
+void charGetter()
 {
-	while (buttonClick != 'q' ) {
 		buttonClick = getch();
-	}
+		switch (buttonClick)
+		{
+			case 'i':
+				kittens++;
+				buttonClick = ' ';
+				break;
+			case 'o':
+				if (kittens >= canValue) {
+				foodCans++;
+				kittens -= canValue;
+				canValue *= 1.5;
+				}
+				buttonClick = ' ';
+				break;
+			case 'f':
+				if (kittens >= tunaValue) {
+				tunaPools++;
+				kittens -= tunaValue;
+				tunaValue *= 1.5;
+				}
+				buttonClick = ' ';
+				break;
+			case 'q':
+				terminate = true;	
+				endwin();
+				break;
+			default:
+				buttonClick = ' ';
+				break;
+		}
+	
 }
+				
+
 

@@ -8,11 +8,12 @@
 void updateKittens() {
 	wmove(catDisp, 1, 4);
 	wclrtoeol(catDisp);
-	wclrtoeol(incDisp);
+	wclrtoeol(canDisp);
 }
 
 void updateBoxes() {
 	catBox();
-	incBox();
+	canBox();
+	tunaBox();
 	buttonClick = ' ';
 }

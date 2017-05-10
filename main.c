@@ -18,7 +18,8 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 	cbreak(); noecho();  getmaxyx(stdscr, maxY, maxX);
-
+	timeout(1);
+	
 	/* Cat display window dimensions */
 	width = 25, height = 	  7;
 	rows  = 25,  cols  = 	 80;
@@ -27,37 +28,27 @@ int main(void)
 	
 	/* Set initial values */
 	canValue = 10;
+	tunaValue = 100;
+	terminate = false;
 
 	/* Make cat display window */
 	catDisp = subwin(mainWin, height, width, y, x);
-	incDisp = subwin(mainWin, height, width, 0, 0); 
-	catBox();
-	incBox();
+	canDisp = subwin(mainWin, height, width, 0, 0); 
+	tunaDisp = subwin(mainWin, height, width, 0, 25);
+	updateBoxes();
 
-	// pthread to grab input
-	pthread_t	char_getter_thread;
-	pthread_create(&char_getter_thread, NULL, charGetter, NULL);
 	// Main program loop
-	while ( buttonClick != 'q' ) {
-		if (buttonClick == 'i') 
-			{	
-			kittens++;
-			}
-
-		if (buttonClick == 'o' && kittens >= canValue)
-			{
-			foodCans++;
-			kittens -= canValue;
-			canValue *= 2;
-			}
+	while ( terminate == false ) {
+		charGetter();
 		updateBoxes();
 		boxIncrementer();
 		updateKittens();
-		usleep(100000);
+		usleep(MILSEC);
 		tick++;
 		}	
 
-	// Cleanup under here
+	// Cleanup here
 	endwin();
+
 	return 0;
 }

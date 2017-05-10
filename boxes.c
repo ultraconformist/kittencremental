@@ -9,16 +9,25 @@ void catBox() {
 	mvwaddstr(catDisp, 2, 2, "Press i for more.");
 	mvwaddstr(catDisp, 3, 2, "Press q to quit.");
 	box(catDisp, 0, 0);
-	wclrtoeol(catDisp);
 	wrefresh(catDisp);
 }
 
-void incBox() {
+void canBox() {
 	sprintf(canString, "Cans: %i", foodCans);
 	sprintf(canPrice, "Can: %Ld Kittens", canValue);
-	mvwaddstr(incDisp, 1, 4, canString);
-	mvwaddstr(incDisp, 2, 2, canPrice); 
-	mvwaddstr(incDisp, 3, 2, "Press o to buy");
-	box(incDisp, 0, 0);
-	wrefresh(incDisp);
+	mvwaddstr(canDisp, 1, 4, canString);
+	mvwaddstr(canDisp, 2, 2, canPrice); 
+	mvwaddstr(canDisp, 3, 2, "Press o to buy");
+	box(canDisp, 0, 0);
+	wrefresh(canDisp);
+}
+
+void tunaBox() {
+	sprintf(tunaString, "Tuna Pools: %i", tunaPools);
+	sprintf(tunaPrice, "Pool: %Ld", tunaValue);
+	mvwaddstr(tunaDisp, 1, 4, tunaString);
+	mvwaddstr(tunaDisp, 2, 2, tunaPrice);
+	mvwaddstr(tunaDisp, 3, 2, "Press f to buy.");
+	box(tunaDisp, 0, 0);
+	wrefresh(tunaDisp);
 }
