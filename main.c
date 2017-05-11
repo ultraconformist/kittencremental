@@ -30,6 +30,7 @@ int main(void)
 	canValue = 10;
 	tunaValue = 100;
 	terminate = false;
+	meowSwitch = 0;
 
 	/* Make cat display window */
 	catDisp = subwin(mainWin, height, width, y, x);
@@ -39,12 +40,11 @@ int main(void)
 
 	// Main program loop
 	while ( terminate == false ) {
-		charGetter();
 		updateBoxes();
 		boxIncrementer();
 		updateKittens();
+		charGetter();
 		usleep(MILSEC);
-		perSecond = (foodCans)*2+(tunaPools*10);
 		tick++;
 		}	
 

@@ -15,8 +15,9 @@
 	int i, foodCans, kittens, tunaPools, tick;
 	int perSecond;
 	int ch;
-	static const int MILSEC = 100000;
-	long canValue, tunaValue;
+	short meowSwitch;
+	static const int MILSEC = 10000;
+	int canValue, tunaValue;
 	char buttonClick;
 	char kittenString[10], canString[50], 
 		 canPrice[50], tunaString[50], 
