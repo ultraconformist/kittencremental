@@ -9,15 +9,19 @@
 	void updateBoxes();
 	void boxIncrementer();
 	void charGetter();
+	void FlushStdin(void);
 
 	int maxX, maxY;	
 	int i, foodCans, kittens, tunaPools, tick;
-	static const int MILSEC = 100000;
-	long canValue, tunaValue;
+	int perSecond;
+	int ch;
+	short meowSwitch;
+	static const int MILSEC = 10000;
+	int canValue, tunaValue;
 	char buttonClick;
 	char kittenString[10], canString[50], 
 		 canPrice[50], tunaString[50], 
-		 tunaPrice[50];
+		 tunaPrice[50], rateString[50];
 	bool terminate;
 	int width, height, rows, cols, x, y;
 

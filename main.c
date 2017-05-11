@@ -18,7 +18,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 	cbreak(); noecho();  getmaxyx(stdscr, maxY, maxX);
-	timeout(1);
+	timeout(0);
 	
 	/* Cat display window dimensions */
 	width = 25, height = 	  7;
@@ -30,6 +30,7 @@ int main(void)
 	canValue = 10;
 	tunaValue = 100;
 	terminate = false;
+	meowSwitch = 0;
 
 	/* Make cat display window */
 	catDisp = subwin(mainWin, height, width, y, x);
@@ -39,10 +40,10 @@ int main(void)
 
 	// Main program loop
 	while ( terminate == false ) {
-		charGetter();
 		updateBoxes();
 		boxIncrementer();
 		updateKittens();
+		charGetter();
 		usleep(MILSEC);
 		tick++;
 		}	
