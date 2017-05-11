@@ -13,7 +13,6 @@ void catBox() {
 	switch(meowSwitch)
 		{
 		case 0:
-		    mvwaddstr(catDisp, 5, 2, "    ");
 			break;
 		case 1:
 			mvwaddstr(catDisp, 5, 2, "m");

@@ -22,6 +22,7 @@ void charGetter()
 		{
 			case 'm':
 				if (meowSwitch == 0)
+				    mvwaddstr(catDisp, 5, 2, "    ");
 					meowSwitch = 1;	
 				break;
 			case 'c':
