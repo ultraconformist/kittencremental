@@ -39,11 +39,11 @@ void charGetter()
 				if (meowSwitch == 1)
 						meowSwitch = 2;
 				break;
-		    case 'o':
+			case 'o':
 				if (meowSwitch == 2)
 						meowSwitch = 3;
 				break;
-		    case 'w':
+			case 'w':
 				if (meowSwitch == 3) {
 						kittens++;
 						meowSwitch = 4;
