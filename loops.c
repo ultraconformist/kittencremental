@@ -2,9 +2,8 @@
 #include "main.h"
 #include "loops.h"
 
-// boxIncrementer increases the value of kittens
-// according to the rate of change per incremental
-// object.
+/* boxIncrementer increases the value of kittens according 
+   to the rate of change per incremental object. */
 
 void boxIncrementer()
 {
@@ -14,22 +13,22 @@ void boxIncrementer()
 		perSecond = (foodCans)*2+(tunaPools*10);
 		tick = 0;
 	}
-	else if (tick > INCRATE){ 	// Failsafe, clears tick
-		tick = 0;				// if tick exceeds INCRATE
+	else if (tick > INCRATE){	// Failsafe if tick exceeds INCRATE
+		tick = 0;				
 	}
 }
 
-// charGetter grabs a character from the user and uses
-// a switch to manipulate other variables as a result.
+/*	charGetter grabs a character from the user and uses a 
+	switch to manipulate other variables as a result. */
 
 void charGetter()
 {
 		ch = getch();
 		switch (ch)
 		{
-			// meowSwitch counts to 4, each subsequent notch
-			// representing a subsequent character of the user
-			// typing "meow."
+			/*	meowSwitch counts to 4, each subsequent notch
+				representing a subsequent character of the user
+				typing "meow." */
 			case 'm':
 				if (meowSwitch == 0)
 				    mvwaddstr(catDisp, 5, 2, "    "); // Crude, fix later
