@@ -2,6 +2,10 @@
 #include <curses.h>
 #include "main.h"
 
+/* catBox commits the quantity of kittens to a string,
+   rate of change to a string, and renders both in
+   the catDisp window. 								*/
+
 void catBox() {
 
 	sprintf(kittenString, "Kittens: %i", kittens);
@@ -10,6 +14,12 @@ void catBox() {
 	mvwaddstr(catDisp, 2, 2, "Type meow for more.");
 	mvwaddstr(catDisp, 3, 2, "Press q to quit.");
 	mvwaddstr(catDisp, 4, 2, rateString);
+
+	/* This switch checks the current state of
+	   the meowSwitch variable containing the
+	   user's progress in typing "meow" and
+	   updates the string on screen accordingly */
+
 	switch(meowSwitch)
 		{
 		case 0:
@@ -32,6 +42,9 @@ void catBox() {
 	wrefresh(catDisp);
 }
 
+/*  canBox does similar to catBox, but with
+	the cans variable and can value. 		*/
+
 void canBox() {
 	sprintf(canString, "Cans: %i", foodCans);
 	sprintf(canPrice, "Can: %i Kittens", canValue);
@@ -42,6 +55,8 @@ void canBox() {
 	box(canDisp, 0, 0);
 	wrefresh(canDisp);
 }
+
+// Ditto, with tunaPools.
 
 void tunaBox() {
 	sprintf(tunaString, "Tuna Pools: %i", tunaPools);

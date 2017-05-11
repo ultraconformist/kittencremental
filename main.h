@@ -10,6 +10,7 @@
 	void boxIncrementer();
 	void charGetter();
 	void FlushStdin(void);
+	void Initialize();
 
 	int maxX, maxY;	
 	int i, foodCans, kittens, tunaPools, tick;
@@ -18,7 +19,6 @@
 	short meowSwitch;
 	static const int MILSEC = 10000;
 	int canValue, tunaValue;
-	char buttonClick;
 	char kittenString[10], canString[50], 
 		 canPrice[50], tunaString[50], 
 		 tunaPrice[50], rateString[50];
@@ -26,5 +26,7 @@
 	int width, height, rows, cols, x, y;
 
 	WINDOW * mainWin, * catDisp, * canDisp, * tunaDisp;
+	
+
 	
 #endif
