@@ -68,6 +68,7 @@ void charGetter()
 				kittens -= meowUpgradeCost;
 				meowUpgradeCost *= 5;
 				}
+				break;
 			case 'q':
 				terminate = true;
 				break;
