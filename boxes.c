@@ -19,7 +19,7 @@ void catBox() {
 	   the meowSwitch variable containing the
 	   user's progress in typing "meow" and
 	   updates the string on screen accordingly */
-
+  
 	switch(meowSwitch)
 		{
 		case 0:
