@@ -62,6 +62,12 @@ void charGetter()
 				tunaValue *= 1.5;
 				}
 				break;
+		    case 'a':
+				if (kittens >= meowUpgradeCost) {
+				meowValue *= 5;
+				kittens -= meowUpgradeCost;
+				meowUpgradeCost *= 5;
+				}
 			case 'q':
 				terminate = true;
 				break;
