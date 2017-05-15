@@ -9,6 +9,9 @@ void Initialize() {
 	tunaValue = 100;
 	terminate = false;
 	meowSwitch = 0;
+	meowValue = 1;
+	meowUpgradeCost = 10000;
+	kittens = 0;
 
 	// Initialize ncurses and get term size
 	if ( (mainWin = initscr()) == NULL ) {
@@ -28,5 +31,6 @@ void Initialize() {
 	catDisp = subwin(mainWin, height, width, 15, 0);
 	canDisp = subwin(mainWin, height, width, 0, 0); 
 	tunaDisp = subwin(mainWin, height, width, 0, 25);
+	upgradeDisp = subwin(mainWin, height, width, 8, 0);
 	updateBoxes();
 }

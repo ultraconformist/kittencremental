@@ -1,9 +1,10 @@
+// This file contains all loops that run throughout the program's operation.
 #include <curses.h>
 #include "main.h"
 #include "loops.h"
 
-/* boxIncrementer increases the value of kittens according 
-   to the rate of change per incremental object. */
+/* boxIncrementer increases the value of kittens according to the rate of 
+ * change per incremental object. */
 
 void boxIncrementer()
 {
@@ -18,17 +19,16 @@ void boxIncrementer()
 	}
 }
 
-/*	charGetter grabs a character from the user and uses a 
-	switch to manipulate other variables as a result. */
+/*	charGetter grabs a character from the user and uses a switch to manipulate 
+ *	other variables as a result. */
 
 void charGetter()
 {
 		ch = getch();
 		switch (ch)
 		{
-			/*	meowSwitch counts to 4, each subsequent notch
-				representing a subsequent character of the user
-				typing "meow." */
+			/*	meowSwitch counts to 4, each subsequent notch representing a 
+			 *	subsequent character of the user typing "meow." */
 			case 'm':
 				if (meowSwitch == 0)
 				    mvwaddstr(catDisp, 5, 2, "    "); // Crude, fix later
@@ -44,7 +44,7 @@ void charGetter()
 				break;
 			case 'w':
 				if (meowSwitch == 3) {
-						kittens++;
+						kittens += meowValue;
 						meowSwitch = 4;
 						}
 				break;
@@ -60,6 +60,13 @@ void charGetter()
 				tunaPools++;
 				kittens -= tunaValue;
 				tunaValue *= 1.5;
+				}
+				break;
+		    case 'a':
+				if (kittens >= meowUpgradeCost) {
+				meowValue *= 5;
+				kittens -= meowUpgradeCost;
+				meowUpgradeCost *= 5;
 				}
 				break;
 			case 'q':

@@ -8,10 +8,10 @@ void updateKittens() {
 	perSecond = (foodCans)*2+(tunaPools*10);
 }
 
-// updateBoxes calls other functions to re-render
-// the boxes on screen
+// updateBoxes calls other functions to re-render the boxes on screen
 void updateBoxes() {
 	catBox();
 	canBox();
 	tunaBox();
+	upgradeBox();
 }

@@ -68,3 +68,12 @@ void tunaBox() {
 	box(tunaDisp, 0, 0);
 	wrefresh(tunaDisp);
 }
+
+void upgradeBox() {
+	sprintf(valueString, "Each meow is worth %i", meowValue);
+	sprintf(costPrice, "Meow (a): %i", meowUpgradeCost);
+	mvwaddstr(upgradeDisp, 1, 2, valueString);
+	mvwaddstr(upgradeDisp, 2, 2, costPrice);
+	box(upgradeDisp, 0, 0);
+	wrefresh(upgradeDisp);
+}

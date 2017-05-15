@@ -1,6 +1,5 @@
-/* Kittencremental - An incremental game
-   about cats. In a terminal.
-   By Morgan (@Ultraconformist) */
+/* Kittencremental - An incremental game about cats. In a terminal.
+ * By Morgan (@Ultraconformist) */
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -10,8 +9,7 @@
 int main(void)
 {
 
-	// Call initializer; defines variables
-	// and builds initial ncurses windows
+	// Call initializer; defines variables and builds initial ncurses windows
 	Initialize();
 
 	// Main program loop
