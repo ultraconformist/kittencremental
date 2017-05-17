@@ -8,9 +8,9 @@
 
 	int maxX, maxY;	
 	int i, foodCans, kittens, tunaPools, tick;
-	int perSecond, meowUpgradeCost;
+	int perSecond, meowValue, meowUpgradeCost;
 	int ch;
-	short meowSwitch, meowValue;
+	short meowSwitch;
 	static const int MILSEC = 10000;
 	int canValue, tunaValue;
 	char kittenString[10], canString[50], 

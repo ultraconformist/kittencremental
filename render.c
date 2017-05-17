@@ -1,17 +1,18 @@
 #include <curses.h>
 #include <stdlib.h>
 #include "main.h"
+#include "balance.h"
 
 void Initialize() {
 
 	/* Set initial values */
-	canValue = 10;
-	tunaValue = 100;
-	terminate = false;
-	meowSwitch = 0;
+	canValue = INITIALCANVALUE;
+	tunaValue = INITIALTUNAVALUE;
+	meowUpgradeCost = INITIALMEOWCOST;
 	meowValue = 1;
-	meowUpgradeCost = 10000;
+	meowSwitch = 0;
 	kittens = 0;
+	terminate = false;
 
 	// Initialize ncurses and get term size
 	if ( (mainWin = initscr()) == NULL ) {
@@ -21,11 +22,9 @@ void Initialize() {
 	cbreak(); noecho();  getmaxyx(stdscr, maxY, maxX);
 	timeout(0);
 	
-	/* Cat display window dimensions */
+	/* Standard box dimensions */ 
 	width = 25, height = 	  7;
 	rows  = 25,  cols  = 	 80;
-	x	  = maxX  / 2;	
-	y	  = maxY / 2;	
 	
 	/* Make cat display window */
 	catDisp = subwin(mainWin, height, width, 15, 0);
