@@ -18,7 +18,7 @@
 		 tunaPrice[50], rateString[50],
 		 valueString[50], costPrice[50];
 	bool terminate;
-	int width, height, rows, cols, x, y;
+	int width, height, rows, cols;
 
 	WINDOW * mainWin, * catDisp, * canDisp, * tunaDisp, * upgradeDisp;
 	
