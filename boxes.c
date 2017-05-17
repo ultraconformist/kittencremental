@@ -2,9 +2,8 @@
 #include <curses.h>
 #include "main.h"
 
-/* catBox commits the quantity of kittens to a string,
-   rate of change to a string, and renders both in
-   the catDisp window. 								*/
+/* catBox commits the quantity of kittens to a string,    rate of change to a 
+ * string, and renders both in  the catDisp window. */
 
 void catBox() {
 
@@ -15,10 +14,9 @@ void catBox() {
 	mvwaddstr(catDisp, 3, 2, "Press q to quit.");
 	mvwaddstr(catDisp, 4, 2, rateString);
 
-	/* This switch checks the current state of
-	   the meowSwitch variable containing the
-	   user's progress in typing "meow" and
-	   updates the string on screen accordingly */
+	/* This switch checks the current state of the meowSwitch variable 
+	 * containing the  user's progress in typing "meow" and updates the string 
+	 * on screen accordingly */
   
 	switch(meowSwitch)
 		{
@@ -42,8 +40,7 @@ void catBox() {
 	wrefresh(catDisp);
 }
 
-/*  canBox does similar to catBox, but with
-	the cans variable and can value. 		*/
+/* canBox does similar to catBox, but with the cans variable and can value. */
 
 void canBox() {
 	sprintf(canString, "Cans: %i", foodCans);
@@ -56,7 +53,7 @@ void canBox() {
 	wrefresh(canDisp);
 }
 
-// Ditto, with tunaPools.
+/* Ditto, with tunaPools. */
 
 void tunaBox() {
 	sprintf(tunaString, "Tuna Pools: %i", tunaPools);
@@ -68,6 +65,8 @@ void tunaBox() {
 	box(tunaDisp, 0, 0);
 	wrefresh(tunaDisp);
 }
+
+/* upgradeBox contains upgrades. */
 
 void upgradeBox() {
 	sprintf(valueString, "Each meow is worth %i", meowValue);
