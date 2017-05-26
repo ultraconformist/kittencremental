@@ -8,10 +8,16 @@
 
 void boxIncrementer()
 {
+    if (tick == INCRATE/4 && meowSwitch == 0 ||
+		tick == INCRATE/4 && meowSwitch == 4){
+		wmove(catDisp, 5, 2);
+		wclrtoeol(catDisp);
+		meowSwitch = 0;
+	}
 	if (tick == INCRATE){
-		kittens 	+= 	(foodCans*FOODCANVALUE);
-		kittens 	+= 	(tunaPools*TUNAVALUE);
-		perSecond 	= 	(foodCans)*FOODCANVALUE +
+		kibble		+= 	(foodCans*FOODCANVALUE);
+		kibble 		+= 	(tunaPools*TUNAVALUE);
+		perSecond 	= 	(foodCans*FOODCANVALUE) +
 						(tunaPools*TUNAVALUE);
 		tick = 0;
 	}
@@ -32,8 +38,6 @@ void charGetter()
 			 *	subsequent character of the user typing "meow." */
 			case 'm':
 				if (meowSwitch == 0)
-						wmove(catDisp, 5, 2);
-						wclrtoeol(catDisp);
 						meowSwitch = 1;	
 				break;
 			case 'e':
@@ -46,28 +50,28 @@ void charGetter()
 				break;
 			case 'w':
 				if (meowSwitch == 3) {
-						kittens += meowValue;
+						kibble += meowValue;
 						meowSwitch = 4;
 						}
 				break;
 			case 'c':
-				if (kittens >= canValue) {
+				if (kibble >= canValue) {
 				foodCans++;
-				kittens -= canValue;
+				kibble -= canValue;
 				canValue *= PURCHASECOSTMULTIPLIER;
 				}
 				break;
 			case 'f':
-				if (kittens >= tunaValue) {
+				if (kibble >= tunaValue) {
 				tunaPools++;
-				kittens -= tunaValue;
+				kibble -= tunaValue;
 				tunaValue *= PURCHASECOSTMULTIPLIER;
 				}
 				break;
 		    case 'a':
-				if (kittens >= meowUpgradeCost) {
+				if (kibble >= meowUpgradeCost) {
 				meowValue *= UPGRADEMULTIPLIER;
-				kittens -= meowUpgradeCost;
+				kibble -= meowUpgradeCost;
 				meowUpgradeCost *= UPGRADECOSTMULTIPLIER;
 				}
 				break;

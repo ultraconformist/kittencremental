@@ -30,6 +30,6 @@ void Initialize() {
 	catDisp = subwin(mainWin, height, width, 15, 0);
 	canDisp = subwin(mainWin, height, width, 0, 0); 
 	tunaDisp = subwin(mainWin, height, width, 0, 25);
-	upgradeDisp = subwin(mainWin, height, width, 8, 0);
+	upgradeDisp = subwin(mainWin, height, width*2, 8, 0);
 	updateBoxes();
 }

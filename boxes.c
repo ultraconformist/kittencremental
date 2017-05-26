@@ -7,9 +7,9 @@
 
 void catBox() {
 
-	sprintf(kittenString, "Kittens: %i", kittens);
+	sprintf(kibbleString, "Kibble: %.0f", kibble);
 	sprintf(rateString, "%i/sec.", perSecond);
-	mvwaddstr(catDisp, 1, 4, kittenString);
+	mvwaddstr(catDisp, 1, 4, kibbleString);
 	mvwaddstr(catDisp, 2, 2, "Type meow for more.");
 	mvwaddstr(catDisp, 3, 2, "Press q to quit.");
 	mvwaddstr(catDisp, 4, 2, rateString);
@@ -23,6 +23,8 @@ void catBox() {
 		case 0:
 		    break;
 		case 1:
+		    wmove(catDisp, 5, 2);
+			wclrtoeol(catDisp);
 			mvwaddstr(catDisp, 5, 2, "m");
 			break;
 		case 2:
