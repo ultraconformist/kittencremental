@@ -14,11 +14,12 @@
 	short meowSwitch;
 	static const int MILSEC = 10000;
 	int canValue, tunaValue;
-	char kittenString[20], canString[50], 
-		 canPrice[50], tunaString[50], 
-		 tunaPrice[50], rateString[50],
+	char kittenString[20], canString[20], 
+		 canPrice[20], tunaString[20], 
+		 tunaPrice[20], rateString[20],
 		 valueString[50], costPrice[50],
-		 kibbleString[20];
+		 kibbleString[20], tunaValueString[20],
+		 foodCanValueString[20];
 	bool terminate;
 	int width, height, rows, cols;
 

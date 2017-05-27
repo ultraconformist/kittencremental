@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <curses.h>
 #include "main.h"
+#include "balance.h"
 
 /* catBox commits the quantity of kittens to a string,    rate of change to a 
  * string, and renders both in  the catDisp window. */
@@ -46,11 +47,12 @@ void catBox() {
 
 void canBox() {
 	sprintf(canString, "Cans: %i", foodCans);
-	sprintf(canPrice, "Can: %i Kittens", canValue);
+	sprintf(canPrice, "Can: %i kibble", canValue);
+	sprintf(foodCanValueString, "Worth %i/sec", FOODCANVALUE);
 	mvwaddstr(canDisp, 1, 4, canString);
 	mvwaddstr(canDisp, 2, 2, canPrice); 
 	mvwaddstr(canDisp, 3, 2, "Press c to buy");
-	mvwaddstr(canDisp, 4, 2, "Worth 2/sec.");
+	mvwaddstr(canDisp, 4, 2, foodCanValueString); 
 	box(canDisp, 0, 0);
 	wrefresh(canDisp);
 }
@@ -59,11 +61,12 @@ void canBox() {
 
 void tunaBox() {
 	sprintf(tunaString, "Tuna Pools: %i", tunaPools);
-	sprintf(tunaPrice, "Pool: %i kittens.", tunaValue);
+	sprintf(tunaPrice, "Pool: %i kibble.", tunaValue);
+	sprintf(tunaValueString, "Worth %i/sec", TUNAVALUE);
 	mvwaddstr(tunaDisp, 1, 4, tunaString);
 	mvwaddstr(tunaDisp, 2, 2, tunaPrice);
 	mvwaddstr(tunaDisp, 3, 2, "Press f to buy.");
-	mvwaddstr(tunaDisp, 4, 2, "Worth 10/sec.");
+	mvwaddstr(tunaDisp, 4, 2, tunaValueString); 
 	box(tunaDisp, 0, 0);
 	wrefresh(tunaDisp);
 }
